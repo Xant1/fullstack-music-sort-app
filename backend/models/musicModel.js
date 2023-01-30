@@ -11,11 +11,11 @@ Music.init(
       primaryKey: true,
       allowNull: false,
     },
-    name: {
+    musician: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    singer: {
+    song: {
       type: DataTypes.STRING,
       allowNull: false,
     },
