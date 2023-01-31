@@ -1,12 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import { fakeData } from './fake.db';
+import { fakeData } from './fakeDB';
 import { FaArrowUp, FaArrowsAltV, FaArrowDown } from 'react-icons/fa';
+import { Pagination } from 'antd';
+import MusicList from './components/MusicList';
 
 function App() {
-  const [data, setData] = useState(fakeData);
+  const [data, setData] = useState([]);
   const [sorted, setSorted] = useState({ sorted: 'year', reversed: false });
-  const [searchPhrase, setSearchPhrase] = useState('');
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(3);
+  const [total, setTotal] = useState('');
+
+  useEffect(() => {
+    const loadMusics = () => {
+      const response = fakeData;
+      setData(response);
+      setTotal(response.length);
+    };
+    loadMusics();
+  }, []);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = data.slice(firstPostIndex, lastPostIndex);
 
   const sortByYear = () => {
     const dataCopy = [...data];
@@ -62,30 +80,6 @@ function App() {
     setSorted({ sorted: 'genre', reversed: !sorted.reversed });
   };
 
-  const search = (event) => {
-    const matchedData = data.filter((d) => {
-      return `${d.musician} ${d.song}`
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase());
-    });
-
-    setData(matchedData);
-    setSearchPhrase(event.target.value);
-  };
-
-  const renderData = () => {
-    return data.map((d) => {
-      return (
-        <tr>
-          <td>{`${d.musician}`}</td>
-          <td>{`${d.song}`}</td>
-          <td>{d.genre}}</td>
-          <td>{d.year}</td>
-        </tr>
-      );
-    });
-  };
-
   const renderArrow = () => {
     if (sorted.reversed) {
       return <FaArrowUp />;
@@ -95,41 +89,47 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='search-container'>
-        <input
-          type='text'
-          placeholder='Search'
-          value={searchPhrase}
-          onChange={search}
-        />
-      </div>
       <div className='table-container'>
         <table>
           <thead>
             <tr>
               <th onClick={sortByName}>
                 <span style={{ marginRight: 10 }}>Musician</span>
-                {sorted.sorted === 'musician' ? renderArrow() : <FaArrowsAltV/>}
+                {sorted.sorted === 'musician' ? (
+                  renderArrow()
+                ) : (
+                  <FaArrowsAltV />
+                )}
               </th>
               <th onClick={sortBySong}>
                 <span style={{ marginRight: 10 }}>Song</span>
-                {sorted.sorted === 'song' ? renderArrow() : <FaArrowsAltV/>}
+                {sorted.sorted === 'song' ? renderArrow() : <FaArrowsAltV />}
               </th>
               <th onClick={sortByGenre}>
                 <span style={{ marginRight: 10 }}>Genre</span>
-                {sorted.sorted === 'genre' ? renderArrow() : <FaArrowsAltV/>}
+                {sorted.sorted === 'genre' ? renderArrow() : <FaArrowsAltV />}
               </th>
               <th onClick={sortByYear}>
                 <span style={{ marginRight: 10 }}>Year</span>
-                {sorted.sorted === 'year' ? renderArrow() : <FaArrowsAltV/>}
+                {sorted.sorted === 'year' ? renderArrow() : <FaArrowsAltV />}
               </th>
             </tr>
           </thead>
-          <tbody>{renderData()}</tbody>
+          <tbody>
+            <MusicList data={currentPosts} />
+          </tbody>
         </table>
+        <Pagination
+          onChange={(value) => setCurrentPage(value)}
+          pageSize={postsPerPage}
+          total={total}
+          current={currentPage}
+          showSizeChanger
+          showQuickJumper
+          style={{ marginTop: '15px', textAlign: 'center' }}
+        />
       </div>
     </div>
   );
 }
-
 export default App;
