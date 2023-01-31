@@ -8,9 +8,12 @@ import MusicList from './components/MusicList';
 function App() {
   const [data, setData] = useState([]);
   const [sorted, setSorted] = useState({ sorted: 'year', reversed: false });
+  
+  
 
+  //pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(3);
+  const [postsPerPage] = useState(10);
   const [total, setTotal] = useState('');
 
   useEffect(() => {
@@ -21,11 +24,12 @@ function App() {
     };
     loadMusics();
   }, []);
-
+  
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = data.slice(firstPostIndex, lastPostIndex);
 
+  //sorting
   const sortByYear = () => {
     const dataCopy = [...data];
     dataCopy.sort((dataA, dataB) => {
@@ -79,7 +83,7 @@ function App() {
     setData(dataCopy);
     setSorted({ sorted: 'genre', reversed: !sorted.reversed });
   };
-
+  //rendering arrow icon
   const renderArrow = () => {
     if (sorted.reversed) {
       return <FaArrowUp />;
@@ -90,6 +94,7 @@ function App() {
   return (
     <div className='App'>
       <div className='table-container'>
+        
         <table>
           <thead>
             <tr>
@@ -128,6 +133,23 @@ function App() {
           showQuickJumper
           style={{ marginTop: '15px', textAlign: 'center' }}
         />
+        <div className='select'>
+          <select onChange={(e) => setData(e.target.value)}>
+            {Array.from(data).map((d) => (
+              <option >{d.musician}</option>
+            ))}
+          </select>
+          <select onChange={(e) => setData(e.target.value)}>
+            {Array.from(data).map((d ) => (
+              <option  >{d.genre}</option>
+            ))}
+          </select>
+          <select onChange={(e) => setData(e.target.value)}>
+            {Array.from(data).map((d ) => (
+              <option>{d.year}</option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );

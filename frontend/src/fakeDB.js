@@ -4,231 +4,231 @@ export const fakeData = [
 		musician: "Erda",
 		song: "Waddingham",
 		genre: "ewaddingham0@mysql.com",
-		gender: "Female",
+		
 	},
 	{
 		year: 2,
 		musician: "Bev",
 		song: "Gavin",
 		genre: "bgavin1@archive.org",
-		gender: "Female",
+	
 	},
 	{
 		year: 3,
 		musician: "Tabb",
 		song: "Murphy",
 		genre: "tmurphy2@ameblo.jp",
-		gender: "Male",
+	
 	},
 	{
 		year: 4,
 		musician: "Elberta",
 		song: "Hansom",
 		genre: "ehansom3@infoseek.co.jp",
-		gender: "Female",
+	
 	},
 	{
 		year: 5,
 		musician: "Chantalle",
 		song: "Espinoza",
 		genre: "cespinoza4@t.co",
-		gender: "Female",
+
 	},
 	{
 		year: 6,
 		musician: "Chickie",
 		song: "Bail",
 		genre: "cbail5@domainmarket.com",
-		gender: "Male",
+
 	},
 	{
 		year: 7,
 		musician: "Conney",
 		song: "Soot",
 		genre: "csoot6@noaa.gov",
-		gender: "Male",
+
 	},
 	{
 		year: 8,
 		musician: "Emlynne",
 		songe: "Tabourier",
 		genre: "etabourier7@51.la",
-		gender: "Female",
+
 	},
 	{
 		year: 9,
 		musician: "Shadow",
 		song: "Neicho",
 		genre: "sneicho8@nifty.com",
-		gender: "Male",
+		
 	},
 	{
 		year: 10,
 		musician: "Caro",
 		song: "Dunnan",
 		genre: "cdunnan9@biglobe.ne.jp",
-		gender: "Female",
+		
 	},
 	{
 		year: 11,
 		musician: "Sissy",
 		song: "Summergill",
 		genre: "ssummergilla@google.nl",
-		gender: "Female",
+		
 	},
 	{
 		year: 12,
 		musician: "Gerda",
 		song: "Hallex",
 		genre: "ghallexb@bloglovin.com",
-		gender: "Female",
+		
 	},
 	{
 		year: 13,
 		musician: "Maurizia",
 		song: "Vale",
 		genre: "mvalec@tuttocitta.it",
-		gender: "Female",
+		
 	},
 	{
 		year: 14,
 		musician: "Benjie",
 		song: "Gilbee",
 		genre: "bgilbeed@wp.com",
-		gender: "Male",
+		
 	},
 	{
 		year: 15,
 		musician: "Prescott",
 		songe: "Ariss",
 		genre: "parisse@networksolutions.com",
-		gender: "Male",
+		
 	},
 	{
 		year: 16,
 		musician: "Hazel",
 		song: "Osbourn",
 		genre: "hosbournf@earthlink.net",
-		gender: "Female",
+		
 	},
 	{
 		year: 17,
 		musician: "McIlriach",
 		song: "Courtnay",
 		genre: "cmcilriachg@usa.gov",
-		gender: "Male",
+		
 	},
 	{
 		year: 18,
 		musician: "Bilby",
 		song: "Betta",
 		genre: "bbilbyh@miibeian.gov.cn",
-		gender: "Female",
+		
 	},
 	{
 		year: 19,
 		musician: "Dalia",
 		song: "Hanhardt",
 		genre: "dhanhardti@mozilla.org",
-		gender: "Female",
+		
 	},
 	{
 		year: 20,
 		musician: "Andrey",
 		song: "Costin",
 		genrel: "acostinj@nydailynews.com",
-		gender: "Male",
+		
 	},
 	{
 		year: 21,
 		musician: "Gilly",
 		song: "Proven",
 		genre: "gprovenk@google.ca",
-		gender: "Female",
+		
 	},
 	{
 		year: 22,
 		musician: "Tull",
 		song: "Petch",
 		genre: "tpetchl@phpbb.com",
-		gender: "Male",
+		
 	},
 	{
 		year: 23,
 		musician: "Ailsun",
 		song: "Saltrese",
 		genre: "asaltresem@house.gov",
-		gender: "Female",
+		
 	},
 	{
 		year: 24,
 		musician: "Kim",
 		song: "Roseveare",
 		genre: "krosevearen@deliciousdays.com",
-		gender: "Female",
+		
 	},
 	{
 		year: 25,
 		musician: "Kimmie",
 		song: "Gallandre",
 		genre: "kgallandreo@hp.com",
-		gender: "Genderfluid",
+	
 	},
 	{
 		year: 26,
 		musician: "Serena",
 		song: "Blainey",
 		genre: "sblaineyp@constantcontact.com",
-		gender: "Female",
+	
 	},
 	{
 		year: 27,
 		musician: "Harman",
 		song: "Louys",
 		genre: "hlouysq@pagesperso-orange.fr",
-		gender: "Male",
+	
 	},
 	{
 		year: 28,
 		musician: "Pepe",
 		song: "McGaughey",
 		genre: "pmcgaugheyr@google.de",
-		gender: "Genderfluid",
+		
 	},
 	{
 		year: 29,
 		musician: "Zeke",
 		song: "Drews",
 		genre: "zdrewss@yellowpages.com",
-		gender: "Male",
+		
 	},
 	{
 		year: 30,
 		musician: "Shirleen",
 		song: "Dybbe",
 		genre: "sdybbet@jalbum.net",
-		gender: "Female",
+		
 	},
 	{
 		year: 31,
 		musician: "Calvin",
 		song: "Covill",
 		genre: "ccovillu@apache.org",
-		gender: "Male",
+		
 	},
 	{
 		year: 32,
 		musician: "Arnoldo",
 		song: "Stittle",
 		genre: "astittlev@domainmarket.com",
-		gender: "Male",
+		
 	},
 	{
 		year: 33,
 		musician: "Horatius",
 		song: "Stancliffe",
 		genre: "hstancliffew@nps.gov",
-		gender: "Male",
+		
 	},
 	// {
 	// 	id: 34,
