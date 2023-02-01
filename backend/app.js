@@ -1,10 +1,10 @@
 const express = require('express')
 const cors = require("cors");
-const musicRouter = require('./routes/musicRouter')
 const db = require('./models')
-
 const PORT = process.env.PORT || 3003;
 const app = express()
+const musicRouter = require('./routes/musicRouter')
+const initialDB = require('./utils/initialDB')
 
 app.use(cors());
 app.use(express.json());
@@ -15,6 +15,8 @@ const start = async () => {
      await db.sequelize.authenticate();
      await db.sequelize.sync();
      app.listen(PORT, () => console.log(`Server started on port : ${PORT}`));
+     // uncomment this function to add fake music dates to DB 
+     //initialDB()
    } catch (err) {
      console.log(err);
    }
