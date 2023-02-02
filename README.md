@@ -15,7 +15,7 @@
 - `controllers/` - This folder contains logic for processing routes.
 - `routes/` - This folder contains the route definitions for our API.
 - `models/` - This folder contains the schema definitions for our Sequelize models.
-- `utils/` - This folder contains the initial function to add fake music dates for our DB.
+- `utils/` - This folder contain the initial function to add fake music dates for our DB.
 
 ## To get the React server running locally:
 
