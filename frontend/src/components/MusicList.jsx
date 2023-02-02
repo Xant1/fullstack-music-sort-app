@@ -3,10 +3,10 @@ import React from 'react';
 import RenderData from './RenderData';
 
 const MusicList = ({ data }) => {
-  return Array.from(data).map((d) => {
+  return data.map((d, i) => {
     return (
       <RenderData
-        key={d.id}
+        key={i}
         musician={d.musician}
         song={d.song}
         genre={d.genre}

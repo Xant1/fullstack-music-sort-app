@@ -27,14 +27,14 @@ function initialDB() {
     year: 1990,
     musician: 'Elberta',
     song: 'Hansom',
-    genre: 'country ',
+    genre: 'country',
   });
 
   Music.create({
     year: 1999,
     musician: 'Chantalle',
     song: 'Espinoza',
-    genre: 'country ',
+    genre: 'metal',
   });
 
   Music.create({
@@ -48,7 +48,7 @@ function initialDB() {
     year: 2007,
     musician: 'Conney',
     song: 'Soot',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({
@@ -69,21 +69,21 @@ function initialDB() {
     year: 2005,
     musician: 'Caro',
     song: 'Dunnan',
-    genre: 'blues ',
+    genre: 'electro',
   });
 
   Music.create({
     year: 2005,
     musician: 'Sissy',
     song: 'Summergill',
-    genre: 'retro ',
+    genre: 'retro',
   });
 
   Music.create({
     year: 2022,
     musician: 'Gerda',
     song: 'Hallex',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({
@@ -131,14 +131,14 @@ function initialDB() {
     year: 1990,
     musician: 'Elberta',
     song: 'Hansom',
-    genre: 'country ',
+    genre: 'country',
   });
 
   Music.create({
     year: 1999,
     musician: 'Chantalle',
     song: 'Espinoza',
-    genre: 'country ',
+    genre: 'country',
   });
 
   Music.create({
@@ -152,7 +152,7 @@ function initialDB() {
     year: 2007,
     musician: 'Conney',
     song: 'Soot',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({
@@ -173,21 +173,21 @@ function initialDB() {
     year: 2005,
     musician: 'Caro',
     song: 'Dunnan',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({
     year: 2005,
     musician: 'Sissy',
     song: 'Summergill',
-    genre: 'retro ',
+    genre: 'retro',
   });
 
   Music.create({
     year: 2022,
     musician: 'Gerda',
     song: 'Hallex',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({
@@ -235,14 +235,14 @@ function initialDB() {
     year: 1990,
     musician: 'Elberta',
     song: 'Hansom',
-    genre: 'country ',
+    genre: 'country',
   });
 
   Music.create({
     year: 1999,
     musician: 'Chantalle',
     song: 'Espinoza',
-    genre: 'country ',
+    genre: 'country',
   });
 
   Music.create({
@@ -256,7 +256,7 @@ function initialDB() {
     year: 2007,
     musician: 'Conney',
     song: 'Soot',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({
@@ -277,21 +277,21 @@ function initialDB() {
     year: 2005,
     musician: 'Caro',
     song: 'Dunnan',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({
     year: 2005,
     musician: 'Sissy',
     song: 'Summergill',
-    genre: 'retro ',
+    genre: 'retro',
   });
 
   Music.create({
     year: 2022,
     musician: 'Gerda',
     song: 'Hallex',
-    genre: 'blues ',
+    genre: 'blues',
   });
 
   Music.create({

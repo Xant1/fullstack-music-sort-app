@@ -1,7 +1,7 @@
 const Music = require('../models/musicModel');
 
 exports.getAll = function (req, res) {
-  Music.findAll()
+  Music.findAll({raw: true})
     .then((data) => {
       res.json(data);
     })

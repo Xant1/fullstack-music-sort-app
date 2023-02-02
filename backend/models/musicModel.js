@@ -30,6 +30,7 @@ Music.init(
   },
   {
     sequelize,
+    timestamps: false,
     modelName: 'Music',
   }
 );
