@@ -1,5 +1,3 @@
-# music-app
-
 # Getting started
 
 To get the Node server running locally:
