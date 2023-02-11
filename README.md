@@ -1,3 +1,4 @@
+- An application for sorting music by genre/artist and by year
 # Getting started
 
 ## To get the Node server running locally:
