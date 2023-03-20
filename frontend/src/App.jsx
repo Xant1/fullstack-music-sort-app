@@ -1,24 +1,40 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import './App.css';
 import axios from 'axios';
 import { Pagination } from 'antd';
-import MusicList from './components/MusicList';
 import Table from './components/Table';
-import FilterSelect from './components/FilterSelect';
 
 function App() {
   const [data, setData] = useState([]);
-  const [reset, setReset] = useState(0);
+  const [sortSelect, setSortSelect] = useState('');
+  const [musicians, setMusicians] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [years, setYears] = useState([]);
 
   //fetching data from server
   useEffect(() => {
     const loadMusics = async () => {
       const response = await axios.get('http://localhost:5555/api/music');
       setData(response.data);
+      setMusicians([...new Set(response.data.map((x) => x.musician))]);
+      setGenres([...new Set(response.data.map((x) => x.genre))]);
+      setYears([...new Set(response.data.map((x) => x.year))]);
       setTotal(response.data.length);
     };
     loadMusics();
-  }, [reset]);
+  }, []);
+
+  const sortedData = useMemo(() => {
+    if (sortSelect) {
+      return data.filter(
+        (item) =>
+          item.musician.includes(sortSelect) ||
+          item.genre.includes(sortSelect) ||
+          item.year.toString().includes(sortSelect)
+      );
+    }
+    return data;
+  }, [sortSelect, data]);
 
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,7 +42,7 @@ function App() {
   const [total, setTotal] = useState('');
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = data.slice(firstPostIndex, lastPostIndex);
+  const currentPosts = sortedData.slice(firstPostIndex, lastPostIndex);
 
   const onShowSizeChanger = (current, pageSize) => {
     setPostsPerPage(pageSize);
@@ -34,38 +50,29 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='table-container'>
-        <div>
-          <h1>Playlist</h1>
-          <table>
-            <Table
-              setData={setData}
-              data={data}
-              sortByName
-              sortBySong
-              sortByGenre
-              sortByYear
-            />
-            <MusicList data={currentPosts} />
-          </table>
-          <Pagination
-            onChange={(value) => setCurrentPage(value)}
-            pageSize={postsPerPage}
-            total={total}
-            current={currentPage}
-            showSizeChanger
-            showQuickJumper
-            onShowSizeChange={onShowSizeChanger}
-            style={{ marginTop: '15px', textAlign: 'center' }}
-          />
-        </div>
-        <FilterSelect
-          data={data}
-          setData={setData}
-          reset={reset}
-          setReset={setReset}
-        />
-      </div>
+      <Table
+        setData={setData}
+        data={sortedData}
+        currentPosts={currentPosts}
+        setSortSelect={setSortSelect}
+        musicians={musicians}
+        genres={genres}
+        years={years}
+        sortByName
+        sortBySong
+        sortByGenre
+        sortByYear
+      />
+      <Pagination
+        onChange={(value) => setCurrentPage(value)}
+        pageSize={postsPerPage}
+        total={total}
+        current={currentPage}
+        showSizeChanger
+        showQuickJumper
+        onShowSizeChange={onShowSizeChanger}
+        style={{ marginTop: '15px' }}
+      />
     </div>
   );
 }

@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { FaArrowUp, FaArrowsAltV, FaArrowDown } from 'react-icons/fa';
+import MusicList from './MusicList';
+import FilterSelect from './FilterSelect';
 
-const Table = ({ data, setData }) => {
+const Table = ({
+  data,
+  setData,
+  currentPosts,
+  setSortSelect,
+  musicians,
+  genres,
+  years,
+}) => {
   const [sorted, setSorted] = useState({});
 
   //sorting items
@@ -67,26 +77,44 @@ const Table = ({ data, setData }) => {
   };
 
   return (
-    <thead>
-      <tr>
-        <th onClick={sortByName}>
-          <span style={{ marginRight: 10 }}>Musician</span>
-          {sorted.sorted === 'musician' ? renderArrow() : <FaArrowsAltV />}
-        </th>
-        <th onClick={sortBySong}>
-          <span style={{ marginRight: 10 }}>Song</span>
-          {sorted.sorted === 'song' ? renderArrow() : <FaArrowsAltV />}
-        </th>
-        <th onClick={sortByGenre}>
-          <span style={{ marginRight: 10 }}>Genre</span>
-          {sorted.sorted === 'genre' ? renderArrow() : <FaArrowsAltV />}
-        </th>
-        <th onClick={sortByYear}>
-          <span style={{ marginRight: 10 }}>Year</span>
-          {sorted.sorted === 'year' ? renderArrow() : <FaArrowsAltV />}
-        </th>
-      </tr>
-    </thead>
+    <div className='table-container'>
+      <div>
+        <h1>Playlist</h1>
+        <table>
+          <thead>
+            <tr>
+              <th onClick={sortByName}>
+                <span style={{ marginRight: 10 }}>Musician</span>
+                {sorted.sorted === 'musician' ? (
+                  renderArrow()
+                ) : (
+                  <FaArrowsAltV />
+                )}
+              </th>
+              <th onClick={sortBySong}>
+                <span style={{ marginRight: 10 }}>Song</span>
+                {sorted.sorted === 'song' ? renderArrow() : <FaArrowsAltV />}
+              </th>
+              <th onClick={sortByGenre}>
+                <span style={{ marginRight: 10 }}>Genre</span>
+                {sorted.sorted === 'genre' ? renderArrow() : <FaArrowsAltV />}
+              </th>
+              <th onClick={sortByYear}>
+                <span style={{ marginRight: 10 }}>Year</span>
+                {sorted.sorted === 'year' ? renderArrow() : <FaArrowsAltV />}
+              </th>
+            </tr>
+          </thead>
+          <MusicList data={currentPosts} />
+        </table>
+        </div>
+      <FilterSelect
+        setSortSelect={setSortSelect}
+        musicians={musicians}
+        genres={genres}
+        years={years}
+      />
+    </div>
   );
 };
 
